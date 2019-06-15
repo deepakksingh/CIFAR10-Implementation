@@ -154,8 +154,6 @@ print(model)
 if trainOnGPU:
     model.cuda()
     
-    
-        
 
 
 # ### specify the loss function and optimizer
@@ -258,15 +256,6 @@ for epoch in range(1,nEpochs+1):
         validLossMin = validLoss
         
         
-        
-        
-        
-        
-        
-        
-        
-
-
 # ### Load the model with the lowest validation loss
 
 # In[ ]:
