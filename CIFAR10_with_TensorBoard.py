@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[28]:
+# In[9]:
 
 
 import torch
@@ -13,13 +13,13 @@ from torch.utils.data.sampler import SubsetRandomSampler
 from torch.utils.tensorboard import SummaryWriter
 
 
-# In[29]:
+# In[10]:
 
 
 print(f"{torch.__version__}")
 
 
-# In[30]:
+# In[11]:
 
 
 #to check if gpu is available
@@ -33,7 +33,7 @@ else:
     print("CUDA is available")
 
 
-# In[31]:
+# In[12]:
 
 
 #number of subprocesses to use for data loading
@@ -91,7 +91,7 @@ classes = [
 ]
 
 
-# In[32]:
+# In[13]:
 
 
 # ### Define the model architecture
@@ -164,7 +164,7 @@ class MyConvNet(nn.Module):
 
 
 
-# In[33]:
+# In[14]:
 
 
 model = MyConvNet()
@@ -173,7 +173,7 @@ print(model)
 tb = SummaryWriter()
 
 
-# In[34]:
+# In[15]:
 
 
 #move tensors to GPU if CUDA is available
@@ -189,7 +189,7 @@ import torch.optim as optim
 lossCriterion = nn.CrossEntropyLoss()
 
 #specify the Optimizer
-optimizer = optim.SGD(model.parameters(),lr=0.02)
+optimizer = optim.SGD(model.parameters(),lr=0.05)
 
 
 # ### Train the Network
