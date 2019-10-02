@@ -1,3 +1,21 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+import torch.nn.functional as F
+import torchvision
+
+from torch.utils.data import DataLoader
+from torch.utils.tensorboard import SummaryWriter
+
+import pandas as pd
+import time
+import json
+
+from itertools import product
+from collections import namedtuple
+from collections import OrderedDict
+
+
 class RunManager():
 	def __init__(self):
 
@@ -71,10 +89,10 @@ class RunManager():
 		self.epoch_loss += loss.item() * self.loader.batch_size
 
 	def track_num_correct(self, preds, labels):
-		self.epoch_num_correct += self.get_num_correct(preds, labels)
+		self.epoch_num_correct += self._get_num_correct(preds, labels)
 
 	@torch.no_grad()
-	def _get_num_correct(self, pred, labels):
+	def _get_num_correct(self, preds, labels):
 		return preds.argmax(dim = 1).eq(labels).sum().item()
 
 	def save(self, fileName):
