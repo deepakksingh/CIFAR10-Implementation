@@ -178,7 +178,7 @@ for lr, batch_size, shuffle in product(*param_values):
 	print(model)
 	# tempImg, tempTarget = next(iter(trainLoader))
 	#move tensors to GPU if CUDA is available
-	# model = nn.DataParallel(model)
+	model = nn.DataParallel(model)
 	model.to(device)
 	# tb.add_graph(model,tempImg.to(device))
 	#specify the loss function

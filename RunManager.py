@@ -88,6 +88,7 @@ class RunManager():
 	def track_loss(self, loss):
 		self.epoch_loss += loss.item() * self.loader.batch_size
 
+
 	def track_num_correct(self, preds, labels):
 		self.epoch_num_correct += self._get_num_correct(preds, labels)
 

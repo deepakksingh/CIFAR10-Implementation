@@ -21,6 +21,7 @@ from RunManager import RunManager
 from RunBuilder import RunBuilder
 
 from model import MyConvNet
+import sys
 
 
 params = OrderedDict(
@@ -82,5 +83,5 @@ for run in RunBuilder.get_runs(params):
 
 	m.end_run()
 
-m.save('results')
+m.save(sys.argv[1])
 
